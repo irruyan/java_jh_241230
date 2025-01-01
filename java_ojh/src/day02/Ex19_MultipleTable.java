@@ -1,5 +1,7 @@
 package day02;
 
+import java.util.Scanner;
+
 public class Ex19_MultipleTable {
 
 	public static void main(String[] args) {
@@ -10,6 +12,13 @@ public class Ex19_MultipleTable {
 			System.out.println(j + " * " + i + " = " + (j*i));
 					
 		}
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int a;
+		a = scan.nextInt();
+		char b;
+		b = scan.next().charAt(0);
 	}
 
 }
