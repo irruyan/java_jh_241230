@@ -13,5 +13,14 @@ public class Ex20_NestingAlphabet {
 			}
 		System.out.println();
 		}
+		
+		System.out.println();
+		
+		for(char ch1 = 'a' ; ch1 <= 'z' ; ch1++) {
+			
+			System.out.print(ch1);
+						
+		}
+		System.out.println();
 	}
 }
