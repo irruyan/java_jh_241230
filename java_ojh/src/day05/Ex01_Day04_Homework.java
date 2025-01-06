@@ -1,12 +1,10 @@
-package day04;
+package day05;
 
-import java.util.Random;
 import java.util.Scanner;
 
-public class Ex10_Homework {
+public class Ex01_Day04_Homework {
 
 	public static void main(String[] args) {
-		
 		/*
 		 * UpDown 게임 참고
 		 * 메뉴
@@ -100,6 +98,9 @@ public class Ex10_Homework {
 				else {
 					System.out.println("게임을 실행한 적이 없습니다.");
 				}
+				System.out.println("메뉴로 가려면 엔터를 입력하세요");
+				scan.nextLine(); // 메뉴와 함께 입력한 엔터 처리용
+				scan.nextLine(); // 메뉴로 돌아가기 위한 엔터 처리
 				break;
 			case '3':
 				System.out.println("프로그램을 종료합니다.");
@@ -113,9 +114,6 @@ public class Ex10_Homework {
 			//종료를 선택하기 전까지 반복
 		}while(menu != '3');
 		
-		
-		
 	}
+
 }
-
-
