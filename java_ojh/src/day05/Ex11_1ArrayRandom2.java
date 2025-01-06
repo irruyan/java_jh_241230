@@ -92,9 +92,15 @@ public class Ex11_1ArrayRandom2 {
 		}
 		int [] arr = new int [size];
 		
-		for(int i = 0; i < size; i++) {
+		int count = 0;
+		
+		while(count <arr.length) {
+			int r = (int)(Math.random() * (max - min + 1) +min);
 			
-			arr[i] = (int)(Math.random() * (max - min + 1) +min);
+			if(contains(arr,r)) {
+				continue;
+		}
+			arr[count++] = r;
 		
 		}
 	return arr;
