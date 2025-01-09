@@ -20,6 +20,8 @@ public class StudentManager {
 		//복사
 		System.arraycopy(std, 0, tmp, 0, std.length);
 		
+		std = tmp;
+		
 	}
 	
 	public void insertStudent(String name, int score) {
