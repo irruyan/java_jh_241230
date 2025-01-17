@@ -1,5 +1,11 @@
 package day12;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +34,10 @@ public class Ex09_ObjectStream2 {
 	public static void main(String[] args) {
 		
 		int menu;
+		String fileName = "src/day12/car.txt";
+		
+		load(fileName, list);
+		
 		do {
 			printMenu();
 			
@@ -37,7 +47,45 @@ public class Ex09_ObjectStream2 {
 			runMenu(menu);
 			
 		}while(menu != 3);
+		
+		save(fileName, list);
 
+	}
+
+
+	private static void save(String fileName, List<Car> list) {
+		try(FileInputStream fos = new FileInputStream(fileName);
+				ObjectInputStream ois = new ObjectInputStream(fos)){
+			
+			List<Car> tmp = (List<Car>)ois.readObject();
+			list.addAll(tmp);
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("not found");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("i/o exception");
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		}
+		
+	}
+
+
+	private static void load(String fileName, List<Car> list) {
+		
+		try(FileOutputStream fos = new FileOutputStream(fileName);
+				ObjectOutputStream oos = new ObjectOutputStream(fos)){
+			
+			oos.writeObject(list);
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("not found");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("i/o exception");
+		}
+		
 	}
 
 
@@ -52,6 +100,8 @@ public class Ex09_ObjectStream2 {
 		case 3:
 			System.out.println("프로그램 종료");
 			break;
+		default:
+			System.out.println("wrong number");
 
 		}
 		
@@ -82,8 +132,9 @@ public class Ex09_ObjectStream2 {
 		System.out.print("추가할 차 브랜드를 입력하세요 : ");
 		String brand = scan.next();
 		
-		Car ca = new Car(name, brand);
-		list.add(ca);
+		list.add(new Car(name,brand));
+		//Car ca = new Car(name, brand);
+		//list.add(ca);
 		
 	}
 
@@ -99,9 +150,15 @@ public class Ex09_ObjectStream2 {
 
 }
 
+
+
 @Data
 @AllArgsConstructor
 class Car implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1455289863100321662L;
 	private String name;
 	private String brand;
 	@Override
