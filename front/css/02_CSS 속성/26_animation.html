@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+	<title>Document</title>
+	<style>
+		/* 
+		애니메이션 등록
+		@keyframes 애니메이션명{
+			지점{
+				속성명 : 값;
+			}
+		}
+		*/
+		@keyframes fontSize_scale {
+			from{
+				font-size: 16px;
+			}
+			to{
+				font-size: 30px;
+			}
+		}
+
+		/* 
+		animation-name : 이름
+		animation-duration : 지속 시간
+		animation-direction : 반복 시 진행 방향(normal/alternate)
+		animation-iterator-count : 반복횟수(숫자/infinite)
+		animation-timing-function
+		animation-fill-mode : 끝나거나 시작전의 상태 지정(none/forward/backward/both)
+		*/
+		.box{
+			width: 100px; height: 100px; border: 1px solid black;
+			animation-name: fontSize_scale;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation: fontSize_scale 1s infinite alternate;
+
+		}
+
+		.box2{
+			width: 100px; height: 100px; border: 1px solid black;
+			animation: fontSize_scale 1s alternate forwards;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">꽝</div>
+	<div class="box2">꽝</div>
+	<h1 class="animate__animated animate__flip">영화 제목입니다.</h1></div>
+	
+</body>
+</html>

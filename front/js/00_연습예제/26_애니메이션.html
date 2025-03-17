@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>애니메이션 CSS</title>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+	
+	<script>
+		const h1 = document.querySelector("#h1");
+		h1.addEventListener("click", function(){
+			h1.classList.remove("animate__bounceIn", "animate__bounceIn");
+			setTimeout(() => {
+				h1.classList.add("animate__bounceIn", "animate__bounceIn");
+				
+			}, 10);
+		})
+	</script>
+	
+</body>
+</html>

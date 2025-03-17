@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.container, .container2{
+			padding: 50px; border: 2px solid rgba(0, 0, 0, 0.6);
+		}
+		.box, .box2{
+			height: 150px; border: 1px solid rgba(0, 0, 0, 0.5); 
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box"></div>
+	</div>
+	<hr>
+	<a href="https://naver.com" class="naver-link">네이버로 이동</a>
+	<hr>
+	<div class="container2">
+		<div class="box2"></div>
+	</div>
+	<hr>
+	<input type="text" id="text">
+	<script>
+		/*
+		이벤트가 발생했을 때 이벤트의 정보를 담고 있는 객체
+		*/
+
+		const box = document.querySelector(".box");
+		const container = document.querySelector(".container");
+		const naverLink = document.querySelector(".naver-link");
+		const container2 = document.querySelector(".container2");
+		const text = document.querySelector("#text");
+
+		container.addEventListener("click", (e)=>{
+			console.log(`이벤트 유형 : ${e.type}`);
+			console.log(`이벤트 발생 요소(최초) : `);
+			console.log(e.target);
+			console.log(`이벤트 발생 요소(현재) : `);
+			console.log(e.currentTarget);
+			console.log(`버블링 : ${e.bubbles}`);
+			console.log(`이벤트 단계 : ${e.eventPhase}`);
+			console.log(`이벤트 생성시간 : ${e.timeStamp}`);
+		});
+
+		naverLink.addEventListener("click", (e)=>{
+			console.log(`기본 동작 취소 : ${e.defaultPrevented}`);
+			e.preventDefault();
+			console.log(`기본 동작 취소 : ${e.defaultPrevented}`);
+		});
+
+		container2.addEventListener("click", (e)=>{
+			console.log(`뷰 포트 내 좌표 : ${e.clientX}, ${e.clientY}`);
+			console.log(`문서 내 좌표 : ${e.pageX}, ${e.pageY}`);
+			console.log(`화면 내 좌표 : ${e.screenX}, ${e.screenY}`);
+			console.log(`눌린 키 : ${e.button}`);
+		});
+
+		text.addEventListener("keydown", (e) => {
+			console.log(`code : ${e.code}`);
+			console.log(`key : ${e.key}`);
+			console.log(`alt : ${e.altKey}`);
+		});
+
+	</script>
+	
+</body>
+</html>

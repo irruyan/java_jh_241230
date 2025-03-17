@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* 
+		transition
+		웹 요소의 스타일이 변경되는 걸 감지해서 서서히 변하도록 함
+
+		transition-property : 속성 변화 감지
+		transition-duration : 시간 변화 감지
+		transition-timing-funtion : 진행 속도 변화
+		 - linear : 등속 / -ease, ease-in 등
+		transition-delay
+		 - 트랜지션이 두개 이상 있는 경우 
+		 하나의 트랜지션이 끝나고 다음 트랜지션이 시작되는 시간
+		transition
+		 - property duration timing-function delay
+		*/
+		.box{
+			width: 100px; height: 100px; font-size: 30px;
+			font-weight: bold; border: 1px solid black;
+			transition-property: font-size, background-color;
+			transition-duration: 1s, 2000ms;
+		}
+		.box:hover{
+			background-color: gray; font-size: 60px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">꽝!</div>
+	
+</body>
+</html>

@@ -39,7 +39,6 @@ public class Ex03_Student {
 		int menu;
 		
 		do {
-			
 			printMenu();
 			
 			menu = scan.nextInt();

@@ -1,0 +1,13 @@
+# 주석
+-- 주석
+/*
+여러줄
+주
+석
+*/
+SHOW DATABASES;
+
+USE WORLD;
+SHOW TABLES;
+EXPLAIN CITY;
+DESC CITY;

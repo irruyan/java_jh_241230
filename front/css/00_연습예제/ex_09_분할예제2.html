@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* 요소 사이 공백 : 10px */
+		.container{border: 1px solid red; padding: 10px;}
+		.box{
+			height: 150px; width: calc((100% - 10px) / 2);
+			border: 1px solid blue; box-sizing: border-box;
+			float: left;
+		}
+
+		.box+.box{margin-left: 10px;}
+
+		.inner-container::after{clear: both; content: ''; display: block;}
+		.container > :nth-child(2) .box{
+			width: calc((100% - 2 * 10px) / 3);
+		}
+		.inner-container+.inner-container{margin-top: 10px;}
+		
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="inner-container">
+			<div class="box">1</div>
+			<div class="box">2</div>
+		</div>
+		
+		<div class="inner-container">
+			<div class="box">3</div>
+			<div class="box">4</div>
+			<div class="box">5</div>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

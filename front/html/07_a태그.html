@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>a태그</title>
+</head>
+<body id="top">
+	<!--
+	a태그
+	다른 페이지로 이동/같은 페이지에서 특정 위치로 이동
+	전화걸기/이메일 보내기/다운로드 하기
+		href : 이동할 위치/페이지, 파일, 전화번호, 이메일
+		target : 창을 띄우기 _self(현재창) _blank(새창) _parent(부모창) _top(최상위 조상 창)
+		download : 파일 다운로드, 다른 이름으로 저장
+		192.168.40.52
+		-->
+
+		<a href="http://naver.com">네이버(_self)</a><br>
+		<br>
+		<a href="http://naver.com"target="_blank">네이버(_blank)</a><br>
+		<br>
+		<a href="../img/dog.jpg"download="강아지1.jpg">이미지 다운로드</a><br>
+		<br>
+		<a href="tel:+821012345678"> 전화걸기 </a><br>
+		<br>
+		<a href="mailto:irruyan@gmail.com"> 메일 보내기 </a><br>
+		<br>
+
+		<!--
+		같은 페이지 내 특정 위치로 이동
+		 - 이동하고 싶은 요소에 id 속성을 지정
+		 - a태그에 href에 #아이디명을 입력-->
+		<div style="height: 1000px;"></div>
+		<a href="#top">TOP</a><br>
+		<br>
+
+</body>
+</html>

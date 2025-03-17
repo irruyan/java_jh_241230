@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>속성</title>
+</head>
+<body>
+	<div class="box" data-target="a">박스</div>
+	<hr>
+	<button id="btn">버튼1 : data-target 가져오기</button>
+	<br>
+	<button id="btn2">버튼2 : data-target 수정하기</button>
+	<br>
+
+	<button id="btn3">버튼3 : data-target 가져오기</button>
+	<br>
+	<button id="btn4">버튼4 : data-target 수정하기</button>
+	<br>
+	<script>
+
+		const btn = document.querySelector('#btn');
+		const btn2 = document.querySelector('#btn2');
+		const btn3 = document.querySelector('#btn3');
+		const btn4 = document.querySelector('#btn4');
+		const box = document.querySelector('.box');
+
+		btn.onclick = ()=>{
+			let target = box.getAttribute('data-target');
+			console.log(target);
+		}
+
+		btn2.onclick = ()=>{
+			box.setAttribute('data-target', 'b');
+			
+		}
+
+
+		btn3.onclick = ()=>{
+			let target = box.dataset.target;
+			console.log(target);
+		}
+
+		btn4.onclick = ()=>{
+			box.dataset.target = 'b';
+			
+		}
+
+	</script>
+	
+</body>
+</html>

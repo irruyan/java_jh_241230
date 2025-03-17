@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../../static/js/jquery.min.js"></script>
+</head>
+<style>
+	body > nav, body > nav *{ border: 3px solid gray; padding: 10px; 
+	list-style: none;	display: block; margin: 10px;}
+
+	.base1{border: 5px solid brown;}
+	.base2{border: 5px solid cadetblue;}
+	.base3{border: 5px solid coral;}
+</style>
+<body>
+	<nav>
+		<ul class="menu-list1">
+			<li class="menu-item">
+				<a href="#" class="menu-link">메뉴 1-1</a>
+			</li>
+
+			<li class="menu-item">
+				<a href="#" class="menu-link base1">메뉴 1-2(base)</a>
+			</li>
+
+			<li class="menu-item">
+				<a href="#" class="menu-link">메뉴 1-3</a>
+			</li>
+		</ul>
+		
+
+		<ul class="menu-list2 base2">
+			<li class="menu-item first">
+				<a href="#" class="menu-link first">메뉴 2-1</a>
+			</li>
+
+			<li class="menu-item">
+				<a href="#" class="menu-link">메뉴 2-2</a>
+			</li>
+
+			<li class="menu-item">
+				<a href="#" class="menu-link">메뉴 2-3</a>
+			</li>
+		</ul>
+		
+
+		<ul class="menu-list3">
+			<li class="menu-item first">
+				<a href="#" class="menu-link">메뉴 3-1</a>
+			</li>
+
+			<li class="menu-item">
+				<a href="#" class="menu-link">메뉴 3-2</a>
+			</li>
+
+			<li class="menu-item base3">
+				<a href="#" class="menu-link">메뉴 3-3</a>
+			</li>
+
+			<li class="menu-item ">
+				<a href="#" class="menu-link">메뉴 3-4</a>
+			</li>
+
+			<li class="menu-item last">
+				<a href="#" class="menu-link">메뉴 3-5</a>
+			</li>
+		</ul>
+	</nav>
+
+	<script>
+		const $base1 = $(".base1");
+		$base1.parent().css("border-top-color", "orange");
+		$base1.parents().css("border-right-style", "dashed");
+		$base1.parents(".menu-list1").css("border-bottom-color", "yellow");
+		$base1.parentsUntil(".menu-list1").css("border-left-color", "blue");
+
+		const $base2 = $(".base2");
+		$base2.children().css("border-top-color", "orange");
+		$base2.children(".first").css("border-right-style", "dashed");
+		$base2.find(".menu-link").css("border-bottom-color", "yellow");
+
+		const $base3 = $(".base3");
+		$base3.prev().css("border-top-color", "orange");
+		$base3.next().css("border-top-color", "orange");
+		$base3.prevAll().css("border-right-style", "double");
+		$base3.nextAll().css("border-right-style", "double");
+		$base3.prevAll(".first").css("border-bottom-color", "yellow");
+		$base3.nextAll(".last").css("border-bottom-color", "yellow");
+		$base3.prevUntil(".first").css("border-left-color", "blue");
+		$base3.prevUntil(".last").css("border-left-color", "blue");
+
+		$base3.siblings().children().css("color", "red");
+		$base3.siblings(".first").children().css("text-decoration", "none");
+
+	</script>
+	
+</body>
+</html>

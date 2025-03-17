@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* 
+		overflow : 요소 안에 있는 컨텐츠가 요소 크기를 벗어났을때 처리방법 설정
+		 - auto
+		 - hidden
+		 - scroll
+		 - visible : 기본값
+		*/
+		.box{
+			width: 100px; height: 100px; border: 1px solid black;
+			margin-bottom: 100px;
+		}
+
+		.box1{overflow: visible;}
+		.box2{overflow: auto;}
+		.box3{overflow: auto;}
+		.box4{overflow: scroll;}
+		.box5{overflow: scroll;}
+		.box6{overflow: hidden;}
+		.box7{
+			overflow: auto;
+			scrollbar-width: none;
+		}
+		.box7::-webkit-scrollbar{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...</div>
+	<div class="box box2">안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...</div>
+	<div class="box box3">안녕하세요 제 이름은...</div>
+	<div class="box box4">안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...</div>
+	<div class="box box5">안녕하세요 제 이름은...</div>
+	<div class="box box6">안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...</div>
+	<div class="box box7">안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...안녕하세요 제 이름은...</div>
+</body>
+</html>

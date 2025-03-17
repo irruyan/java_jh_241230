@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>form tag</title>
+</head>
+<body>
+	<!--
+	form 태그
+	 - 서버로 데이터를 전송할때 사용하는 태그
+	 - action : 정보를 보낼 서버 주소
+	 - method : 데이터 전송 방식
+	  - get : 기본값, url에 보낼 데이터를 추가해서 전송(데이터가 노출됨)
+		- post : Request Header에 데이터를 추가해서 전송(url에 노출되지 않음)
+	enctype
+	 - method 속성이 post인 경우에만 설정
+	 - application/x-www-form-urlencoded(기본값, 서버로 보내기전 모두 인코딩)
+	 - multipart/form-data(서버에 파일을 전송할때 사용)
+	 - text/plan(공백문자는 +로 변환, 나머지는 인코딩하지 않음)
+	-->
+
+	<!--
+	fieldset 태그
+	 - form태그 안에 요소들을 묶어서 테두리를 표시
+	legend 태그
+	 - fieldset 태그 안에서 묶인 요소들의 대표 이름을 지정
+	-->
+	
+	<!--
+	input 태그
+	 - form 태그 안에서 정보를 입력받은 태그
+	 - 속성
+	  - value : 초기값 설정
+		- name : 입력된 값을 서버로 보내기 위해서 반드시 지정해야 하는 속성
+		 지정하지 않으면 서버로 데이터 전송이 안됨. 서버에서는 name을 변수명으로 사용
+		- readonly : 읽기 전용, 서버로 데이터 전송됨
+		- disabled : 값 변경 불가, 서버로 데이터 전송 불가
+		- required : 필수 항목 지정, 입력하지 않고 전송하면 알림이 뜨고 전송안됨
+		- placeholder : 입력하기 전 안내 문구를 표시
+		 value를 지정하는 경우와 다른 점은 클릭시 빈칸이 됨
+		- autofocus : 페이지가 로딩 됐을때 커서를 자동으로 활성화 시킬지 여부를 결정
+		- accept : [type=file]인 경우 파일의 확장자를 제한(audio/* : 모든 음원 파일)
+		- checked
+		 - [type=radio] 또는 [type=checkbox]인 경우 초기 체크 상태를 결정하는 속성
+		- src
+		 - [type=image]인 경우 이미지 파일 위치를 지정
+		- type
+		 - input 태그의 종류를 결정하는 속성
+		 - text : 한 줄 입력창
+		 - password : 한 줄 비밀번호 입력창
+		 - hidden : 서버에 보내야 하지만 사용자가 볼 필요없는 정보일때 사용
+		 - button : 일반 버튼
+		 - submit : 모양은 일반 버튼과 같음. form태그 안에서 서버로 데이터를 전송할때 사용
+		 - reset : 같은 form태그 안에 있는 모든 input 태그들을 초기화
+		 - checkbox : 체크 박스, 다중 선택, name을 동일하게 지정
+		 - radio : 한개만 선택 name을 동일하게 지정
+		 - file : 첨부파일을 선택할 때 사용
+		 - image : 이미지를 가져올 때 사용
+		 - color : 색상 정보를 가져올때 사용
+		 - date/datetime/datetime-local/time/month/week : 날짜 관련 정보 사용
+		 - number : 숫자만 입력 위/아래 화살표를 통해 선택
+		 - range : 슬라이드 막대를 통해 숫자를 조절
+		 - search : 검색창, text 와 다른 점은 우측에 x 버튼이 생김
+		 - tel : 전화번호로 인식
+		 - email/url : 이메일 url을 입력할때 사용. 형식과 다르면 알림
+	-->
+	
+	<h1>회원가입</h1>
+	<form action="">
+		<fieldset>
+			<legend> 필수 정보 </legend>
+			<input type="text" name="id" placeholder="아이디를 입력하세요." required><br>
+			<input type="button" value="아이디 중복 확인"><br>
+			<input type="password" name="pw" placeholder="비번을 입력하세요."required><br>
+			<input type="password" name="pw2" placeholder="비번을 입력하세요."required><br>
+		</fieldset>
+		<fieldset> 
+			<legend> 선택 정보 </legend>
+			<input type="number" name="age" placeholder="나이를 입력하세요"><br>
+			<input type="email" name="email" placeholder="이메일을 입력하세요"><br>
+			<div>성별</div>
+			<input type="radio" name="gender" value="남성" checked> 남성
+			<input type="radio" name="gender" value="여성"> 여성<br>
+			<div>취미</div>
+			<input type="checkbox" name="hobby" value="운동" checked> 운동
+			<input type="checkbox" name="hobby" value="독서"> 독서
+			<input type="checkbox" name="hobby" value="음악감상"> 음악감상
+			<br> 
+			<div>연락처</div>
+			<input type="tel" name="phone" placeholder="전화번호를 입력하세요"><br>
+		</fieldset>
+		<input type="reset" value="초기화"><br>
+		<input type="submit" value="전송">
+	</form>
+	<h1>기타</h1>
+	<form action="">
+		<input type="file" name="file"><br>
+		<input type="file" name="file" accept="image/*" ><br>
+		<input type="color" name="color"><br>
+		<input type="date" name="date"><br>
+		<input type="search" name="search" placeholder="검색어를 입력하세요"><br>
+		<input type="range" name="range" min="1" max="10" step="1">10 <br>
+
+		<input type="submit" value="전송">
+	</form>
+
+	<img src="../img/dog.jpg" alt="강아지" width="100" height="100"><br>
+	<input type="image" src="../img/dog.jpg" alt="강아지" width="100" height="100"><br>
+	<!-- 
+	label 태그 : 레이블 클릭 시 해당 레이블과 연결된 입력창을 선택할때 사용
+	 - 태그 안에 input 태그 배치
+	 - input 태그에 id를 지정하고 label 태그에 for 속성값으로 id를 추가
+	-->
+	<div>성별</div>
+	<label>
+		<input type="radio" name="gender" value="남성" checked> 남성
+	</label>
+	<input type="radio" name="gender" value="여성" id="female">
+	<label for="female">여성</label>
+</body>
+</html>

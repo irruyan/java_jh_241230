@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../../static/js/jquery.min.js"></script>
+</head>
+<style>
+	.box{ height: 200px; border:  1px solid black; margin: 10px 0;}
+	.bg-yellow{background-color: yellow;}
+	.bg-color{background-color: gold;}
+	#btn4{display: none;}
+</style>
+<body>
+	<button type="button" id="btn1">배경 : 노랑</button>
+	<button type="button" id="btn2">배경 : 없음</button>
+	<button type="button" id="btn3">배경 : 노랑 &lt;-&gt; 없음</button>
+	<button type="button" id="btn4">글자 : 노랑 &lt;-&gt; 없음</button>
+	<div class="box box1"></div>
+	<button type="button" id="btn5">배경 : 노랑</button>
+	<button type="button" id="btn6">배경 : 없음</button>
+	<button type="button" id="btn7">배경 : 노랑 &lt;-&gt; 없음</button>
+	<div class="box box2"></div>
+
+	<script>
+		const $box1 = $(".box1");
+		const $box2 = $(".box2");
+
+		$("#btn1").click(e=>{
+			$box1.addClass("bg-yellow");
+			$("#btn4").click();
+		})
+
+		$("#btn2").click(e=>{
+			$box1.removeClass("bg-yellow");
+			$("#btn4").click();
+		})
+
+		$("#btn3").click(e=>{
+			$box1.toggleClass("bg-yellow");
+			$("#btn4").click();
+		})
+
+		$("#btn4").click(e=>{
+			if($box1.hasClass("bg-yellow")){
+				$box1.text("노랑");
+			}else{
+				$box1.text("없음");
+			}
+		})
+		$("#btn4").click();
+
+
+		$("#btn5").click(e=>{
+			$box2.css("background-color", "gold");
+			
+		})
+
+		$("#btn6").click(e=>{
+			$box2.css({
+				backgroundColor : "white"
+			});
+			
+		})
+
+		$("#btn7").click(e=>{
+			let backgroundColor = $box2.css("backgroundColor");
+			if("rgb(255, 255, 0)" == backgroundColor){
+				$box2.css("background-color", "white")
+			}else{
+				$box2.css("background-color", "yellow")
+			}
+			
+		})
+	</script>
+	
+</body>
+</html>

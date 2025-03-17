@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* 
+		transform
+		1. translate? : 주어진 방향으로 이동, 없으면 x, y축 방향으로 이동
+		*/
+		.box{
+			width: 200px; height: 100px; margin-bottom: 100px;
+			border: 3px solid black;
+		}
+		.translate-container{perspective: 500px;}
+		.t1{transform: translateX(50px);}
+		.t2{transform: translateY(50px);}
+		.t3{transform: translate(50px, 50px);}
+		.t4{transform: translateZ(-100px);}
+		.t5{transform: translate3d(50px, 50px, -100px);}
+		/* 
+		scale : 요소를 확대/축소
+		 */
+
+		 .scale-container{ perspective: 500px;}
+		 .scale-container .box{
+			width: 100px; height: 100px; border: 3px solid black;
+			margin-bottom: 100px;
+		 }
+		 .s1{ transform: scale(2, 0.5);}
+		 .s2{ transform: scaleX(2);}
+		 .s3{ transform: scaleY(0.5);}
+		 .s4{ transform: scaleZ(10);}
+		 .s5{ transform: scale3d(2, 0.5, 10);}
+		 .rotate-container .box{
+			background-image: url(../../img/dog.jpg);
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		 }
+		 .r1{ transform: rotateX(60deg);}
+		 .r2{ transform: rotateY(60deg);}
+		 .r3{ transform: rotate(30deg);}
+		 .r4{ transform: rotateZ(30deg);}
+		 .r5{ transform: rotateY(60deg);}
+
+		 .sk1{ transform: skewX(30deg);}
+
+		 .origin-container .box{
+			transform: scale(2);
+			transform-origin: 0 0;
+		 }
+		 /* 
+		 transform-style
+		  - 여러가지 변형을 동시에 하는 경우 부모 요소에 적용한 3d변경을
+			 하위 요소에 적용하는 속성
+		 */
+		 .style-container > div{margin-bottom: 50px;}
+		 .style-container .inner-box{
+			width: 100px; height: 100px; background: gray;
+			transform: perspective(500px) rotateY(30deg);
+		 }
+		 .flat-container, .preserve-container{
+			display: inline-block; border: 10px solid red;
+			transform: perspective(500px) rotateY(-60deg);
+		 }
+		 .flat-container{transform-style: flat;}
+		 .preserve-container{transform-style: preserve-3d;}
+
+		 /* 
+		 backface-visibility : 요소의 뒷면을 보여줄지 말지 결정하는 속성
+		  - visible / hidden
+		  */
+
+			.backface-container .box{
+				background: url(../../img/dog.jpg) center/contain no-repeat;
+				transform: rotateY(100deg);
+			}
+			.backface-container .box2{
+				backface-visibility: hidden;
+			}
+	</style>
+</head>
+<body>
+	<div class="translate-container">
+		<div class="box"></div>
+		<div class="box t1"></div>
+		<div class="box t2"></div>
+		<div class="box t3"></div>
+		<div class="box t4"></div>
+		<div class="box t5"></div>
+		
+	</div>
+	<hr>
+	<hr>
+
+	<div class="scale-container">
+		<div class="box"></div>
+		<div class="box s1"></div>
+		<div class="box s2"></div>
+		<div class="box s3"></div>
+		<div class="box s4"></div>
+		<div class="box s5"></div>
+		
+	</div>
+<hr>
+<hr>
+<hr>
+	<div class="rotate-container">
+		<div class="box"></div>
+		<div class="box r1">1</div>
+		<div class="box r2">2</div>
+		<div class="box r3">3</div>
+		<div class="box r4">4</div>
+		<div class="box r5">5</div>
+
+	</div>
+
+	<hr>
+
+	<div class="skew-container">
+		<div class="box"></div>
+		<div class="box sk1">1</div>
+		<div class="box sk2">2</div>
+		<div class="box sk3">3</div>
+		<div class="box sk4">4</div>
+		<div class="box sk5">5</div>
+
+	</div>
+	<hr>
+	<div class="origin-container">
+		<div class="box"></div>
+	</div>
+
+	<hr>
+	<div class="style-container">
+		<div class="flat-container">
+			<div class="inner-box"></div>
+		</div>
+		<div class="preserve-container">
+			<div class="inner-box"></div>
+		</div>
+	</div>
+<hr>
+	<div class="backface-container">
+		<div class="box box1"></div>
+		<div class="box box2"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../../static/js/jquery.min.js"></script>
+	<style>
+		.container{ margin-top: 10px;}
+		.box{
+			width: 100px; height: 100px; background-color: bisque;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" id="btn1">시작</button>
+	<button type="button" id="btn2">중지</button>
+	<button type="button" id="btn3">돌아가기</button>
+	
+	<div class="container">
+		<div class="box"></div>
+	</div>
+
+	<script>
+		const $box = $(".box");
+
+		$("#btn1").click(function(){
+			if($box.is(":animated")){
+				return;
+			}
+			$box.animate({
+				marginLeft : "+=100px"
+			}, 1000, function(){
+				console.log("우측으로 이동 끝")
+			});
+		})
+		
+		$("#btn3").click(function(){
+			if($box.is(":animated")){
+				return;
+			}
+			$box.animate({
+				marginLeft : "-=100px"
+			}, 1000, function(){
+				console.log("좌측으로 이동 끝")
+			});
+		})
+
+		$("#btn2").click(function(){
+			$box.stop(true)
+		})
+	</script>
+</body>
+</html>

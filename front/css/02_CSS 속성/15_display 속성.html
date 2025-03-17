@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>display 속성</title>
+	<style>
+		/* 
+		display
+		 - 요소의 display를 변경하는 속성
+		 - inline
+		  - 현재 위치에서 시작
+		 - block
+		  - 새 라인에서 시작
+		 - inline-block
+		  - 현재 위치에서 시작
+		 - flex, grid 등
+		*/
+		.box1 > span{display: block; height: 50px; width: 214px;}
+		.box2 > div{display: inline;}
+		.box3 > div{display: inline-block; height: 50px; width: 300px;}
+		.box4 {display: none;}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<span> span태그 이지만 display를 block으로 했습니다.</span>
+		<span> span태그 이지만 display를 block으로 했습니다.</span>
+		<span> span태그 이지만 display를 block으로 했습니다.</span>
+	</div>
+	<div class="box box2">
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+	</div>
+	
+	<div class="box box3">
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+	</div>
+	<div class="box box4">
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+		<div> div태그 이지만 display를 inline으로 했습니다.</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list"></ul>
+
+	<script>
+		const list = document.querySelector("#list");
+		fetch("https://my-json-server.typicode.com/st8324/repo/board")
+			.then(res => res.json())
+			.then(res => {
+				let html = '';
+				res.forEach(b=>{
+					html += `
+						<li>${b.num} : ${b.title}(${b.view}) - ${b.writer} </li>
+					`;
+					list.innerHTML = html;
+				})
+			});
+	</script>
+</body>
+</html>

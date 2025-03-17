@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box{
+			border: 3px solid; padding: 100px;
+		}
+
+		.inner-box{
+			height: 100px; background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<h1>마우스 이벤트</h1>
+	<div class="box">
+		<div class="inner-box"></div>
+	</div>
+	<hr>
+
+	<h1>키보드 이벤트</h1>
+	<input type="text" id="text">
+	<hr>
+
+	<h1>form 이벤트</h1>
+	<form action="" id="form">
+		<input type="text" id="text2" name="text2">
+		<button type="submit" id="submitBtn">전송</button>
+	</form>
+	
+
+
+	<script>
+		const box = document.querySelector('.box');
+		box.ondblclick = ()=> console.log('박스 더블 클릭');
+		box.onclick = ()=> console.log('박스 클릭');
+		box.onmousedown = ()=> console.log('박스 클릭 중');
+		box.onmouseup = ()=> console.log('박스 클릭 끝');
+		// box.onmousemove = ()=> console.log('박스 클릭 이동 중');
+		box.onmouseover = ()=> console.log('박스 요소 안으로 - over');
+		box.onmouseout = ()=> console.log('박스 요소 밖으로 - out');
+
+		box.onmouseenter = ()=> console.log('박스 요소 안으로 - enter');
+		box.onmouseleave = ()=> console.log('박스 요소 밖으로 - leave');
+		box.oncontextmenu = ()=> console.log('박스 우클릭');
+
+		// 키보드 이벤트
+		const textEl = document.querySelector('#text');
+		textEl.onkeydown = ()=> console.log("키 눌림");
+		textEl.onkeyup = ()=> console.log("키 뗌");
+		textEl.onkeypress = ()=> console.log("키 눌림(press)");
+
+		//form 이벤트
+		const form = document.querySelector('#form');
+		const textEl2 = document.querySelector("#text2");
+		const submitBtn = document.querySelector('#submitBtn');
+
+		form.onsubmit = ()=>{
+			alert('submit 이벤트 입니다. 전송 안 함')
+			return false;
+		}
+
+		submitBtn.onclick = ()=> false;
+
+		textEl2.onchange = ()=> console.log('change 이벤트 발생');
+		textEl2.oninput = ()=> console.log('input 이벤트 발생');
+		textEl2.onfocus = () => console.log('focus 이벤트 발생');
+		textEl2.onblur = () => console.log('blur 이벤트 발생');
+
+		window.onresize = ()=> console.log('브라우저 창의 크기가 변경 됩니다.');
+
+
+	</script>
+	
+</body>
+</html>

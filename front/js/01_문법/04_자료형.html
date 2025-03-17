@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script>
+		/*
+		1. 숫자 : number
+		2. 문자열 : string
+		3. boolean
+		4. null
+		5. bigint
+		6. symbol
+		7. object 객체
+		typeof : 변수 또는 값의 자료형을 알려주는 연산자
+		*/
+		var age = 20;
+		var str = `당신의 나이는 ${age}살 입니다`;
+		document.write(str + '<br>');
+
+		document.write(`${1}의 자료형은? ${typeof 1}`+ '<br>');
+		document.write(`${3.14}의 자료형은? ${typeof 3.14}`+ '<br>');
+		document.write(`${NaN}의 자료형은? ${typeof NaN}`+ '<br>');
+		document.write(`${Infinity}의 자료형은? ${typeof Infinity}`+ '<br>');
+		document.write("<hr>");
+		document.write(`""의 자료형은? ${typeof ""}`+ '<br>');
+		document.write(`''의 자료형은? ${typeof ''}`+ '<br>');
+		document.write("<hr>");
+
+		document.write(`${true}의 자료형은? ${typeof true}`+ '<br>');
+		document.write("<hr>");
+
+		document.write(`${1n}의 자료형은? ${typeof 1n}`+ '<br>');
+		document.write("<hr>");
+
+		var num ;
+		document.write(`${num}의 자료형은? ${typeof num}`+ '<br>');
+		document.write("<hr>");
+
+		var func = function(){}
+		document.write(`함수의 자료형은? ${typeof func}`+ '<br>');
+		document.write("<hr>");
+
+		var symbol = Symbol("id");
+		document.write(`심볼의 자료형은? ${typeof symbol}`+ '<br>');
+
+		document.write("<hr>");
+
+		/*
+		논리 연산자
+		- false : false, 0, null, undefined, '', NaN
+		
+		|| 연산자
+		- 둘 중 하나가 참이면 참.
+		- 각 항의 값들 중에서 처음으로 참이 되는 값을 선택
+		*/
+
+		document.writeln(`95 < 0 || 95 > 100 : ${95 < 0 || 95 > 100}` + "<br>");
+		document.writeln(`-1 < 0 || -1 > 100 : ${-1 < 0 || -1 > 100}` + "<br>");
+		document.writeln(`0 || null || 3 : ${0 || null || 3}` + "<br>");
+		document.write("<hr>");
+		/*
+		&& 연산자
+		 - 각 항의 값들 중에서 처음으로 거짓이 되는 값을 선택
+		*/
+		document.writeln(`95 < 0 && 95 > 100 : ${95 < 0 && 95 > 100}` + "<br>");
+		document.writeln(`95 >= 0 && 95 <= 100 : ${95 >= 0 && 95 <= 100}` + "<br>");
+		document.writeln(`0 && null && 3 : ${0 && null && 3}` + "<br>");
+		document.write("<hr>");
+
+		// ??연산자 : null 병합 연산자
+		// a ?? b : a가 null 또는 undefined이면 b를 반환, 아니면 a를 반환
+		//  기본값을 활용할 떄 사용
+
+		// var age = prompt("당신의 나이는?");
+		// document.write(`당신의 나이는 ${age ?? 0} 살 입니다.`)
+		// document.write("<hr>");
+
+		// 비교연산자 ==, ===
+		document.write(`1 == "1" : ${1 == "1"}` +"<br>");
+		document.write(`1 === "1" : ${1 === "1"}` +"<br>");
+		document.write(`1 === "1.0" : ${1 === "1.0"}` +"<br>");
+
+		document.write(`1 != "1" : ${1 != "1"}` +"<br>");
+		document.write(`1 !== "1" : ${1 !== "1"}` +"<br>");
+		document.write(`1 !== "1.0" : ${1 !== "1.0"}` +"<br>");
+		document.write("<hr>");
+
+		document.write(`1 < "1" : ${1 < "1"}` +"<br>");
+		document.write(`1 < "12" : ${1 < "12"}` +"<br>");
+		document.write(`3 < "12" : ${3 < "12"}` +"<br>");
+		document.write(`3 < "12a" : ${3 < "12a"}` +"<br>");
+		document.write(`1 < "22a" : ${1 < "22a"}` +"<br>");
+		document.write("<hr>");
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

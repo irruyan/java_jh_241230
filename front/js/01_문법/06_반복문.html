@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script>
+		// for in
+		// for of
+
+		var obj = {
+			name : '홍길동',
+			age : 21
+		};
+		var arr = [1, 2, 3, "abc"];
+
+		for(attr in obj){
+			document.write(`${attr} : ${arr[attr]}` + '<br>');
+		}
+
+		document.write('<hr>');
+
+		for(attr in arr){
+			document.write(`${attr} : ${arr[attr]}` + '<br>');
+		}
+
+		document.write('<hr>');
+
+		for(val of arr){
+			document.write(`${val}` + '<br>');
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

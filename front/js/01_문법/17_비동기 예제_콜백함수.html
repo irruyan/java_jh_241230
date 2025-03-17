@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<script>
+		function increase(n, callback){
+			setTimeout(()=>{
+				document.write(`${n+1} <br>`);
+				if(callback){
+					callback(n + 1);
+				}
+
+			}, 2000);
+		}
+		increase(0, n=>{
+			increase(n, n=>{
+				increase(n, n=>{
+					increase(n, n=>{
+						increase(n, n=>{
+							document.write("done<br>")
+						})
+					} )
+				})
+			});
+		});
+		document.write("마지막 작업 <br>");
+	</script>
+</body>
+</html>
