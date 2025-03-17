@@ -56,4 +56,4 @@ node_modules
 /.kotlin/
 
 .metadata
-.class
+*.class
