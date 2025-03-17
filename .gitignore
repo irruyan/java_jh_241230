@@ -54,3 +54,6 @@ cached-antora-playbook.yml
 
 node_modules
 /.kotlin/
+
+.metadata
+.class
