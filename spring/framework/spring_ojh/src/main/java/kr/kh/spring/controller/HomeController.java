@@ -1,10 +1,14 @@
 package kr.kh.spring.controller;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.kh.spring.model.vo.PersonDTO;
 
@@ -57,10 +61,19 @@ public class HomeController {
 	 *  - 클래스의 필드와 이름이 같은 필드가 있으면 자동으로 맵핑이 되어 값이 변경됨
 	 *   - 이때 setter를 호출
 	 * */
+	
+	@RequestMapping("/send")
+	public String send(Model model, PersonDTO person) {
+		System.out.println("화면에서 보낸 이름과 나이 : " + person);
+		// 서버에서 화면으로 객체 전송
+		model.addAttribute("person", person);
+		return "/sample/send";
+	}
+	/*
 	@GetMapping("/send")
 	public String send(Model model, PersonDTO person) {
 		System.out.println("화면에서 보낸 이름과 나이 : " + person);
-		/* 서버에서 화면으로 객체 전송 */
+		// 서버에서 화면으로 객체 전송
 		model.addAttribute("person", person);
 		return "sample/send";
 	}
@@ -68,16 +81,19 @@ public class HomeController {
 	@PostMapping("/send")
 	public String sendPost(Model model, PersonDTO person) {
 		System.out.println("화면에서 보낸 이름과 나이 : " + person);
-		/* 서버에서 화면으로 객체 전송 */
+		// 서버에서 화면으로 객체 전송
 		model.addAttribute("person", person);
 		return "sample/send";
 	}
+	
+	 * */
+	
 	
 	@GetMapping("/{name}/{age}")
 	public String nameAge(@PathVariable("name")String name, @PathVariable("age")int age) {
 		System.out.println("화면에서 전송한 이름 : " + name);
 		System.out.println("화면에서 전송한 이름 : " + age);
-		return "sample/send";
+		return "/sample/send";
 	}
 	
 	@GetMapping("/redirect")
@@ -94,4 +110,17 @@ public class HomeController {
 		 * */
 		return "forward:/send";
 	}
+	
+	@GetMapping("/jstl")
+	public String jstl(Model model) {
+		List<String> list = Arrays.asList("사과", "바나나", "딸기", "포도");
+		model.addAttribute("str", "<h1>서버에서 보낸 데이터입니다</h1>");
+		model.addAttribute("age", 10);
+		model.addAttribute("list", list);
+		model.addAttribute("date", new Date());
+		return "/sample/jstl";
+	}
+	
+	
+	
 }

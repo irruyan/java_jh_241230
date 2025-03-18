@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>전송 확인</h1>
-	<p>${person.name}의 나이 : ${person.age}</p>
-	<p>${person.getName()}의 나이 : ${person.getAge()}</p>
-	<p>${person.total }</p>
+<div class="mt-4 p-5 bg-secondary text-white">
+   <h1>Footer</h1> 
+   <p>푸터 내용</p> 
+</div>
 
 </body>
 </html>
