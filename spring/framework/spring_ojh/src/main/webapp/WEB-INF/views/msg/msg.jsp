@@ -8,8 +8,10 @@
 <head>
 </head>
 <body>
-<br>
-<h1> Hello world! </h1>
+	<script type="text/javascript">
+		alert('${msg}');
+		location.href = "<c:url value="${url}"/>";
+	</script>
 
 </body>
 </html>

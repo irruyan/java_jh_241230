@@ -1,3 +1,5 @@
+# https://www.erdcloud.com/d/PsDTmWwCgyxQgbSxe
+
 DROP DATABASE IF EXISTS COMMUNITY;
 
 CREATE DATABASE COMMUNITY;
@@ -16,24 +18,23 @@ CREATE TABLE `MEMBER` (
 DROP TABLE IF EXISTS `BOARD`;
 
 CREATE TABLE `BOARD` (
-	`bo_num`	int primary key auto_increment	NOT NULL,
-	`bo_name`	varchar(20) unique not	NULL,
-	`Field`	VARCHAR(255)	NULL
+	`bo_num`	int  primary key auto_increment	NOT NULL,
+	`bo_name`	varchar(20) unique not	NULL
 );
 
 DROP TABLE IF EXISTS `POST`;
 
 CREATE TABLE `POST` (
-	`po_num`	int primary key auto_increment	NOT NULL,
+	`po_num`	int  primary key auto_increment	NOT NULL,
 	`po_title`	varchar(255) not	NULL,
-	`po_content`	longtext	NULL,
+	`po_content`	longtext not	NULL,
 	`po_date`	datetime default current_timestamp not	NULL,
 	`po_view`	int default 0 not	NULL,
 	`po_up`	int default 0 not	NULL,
 	`po_down`	int default 0 not	NULL,
-	`po_me_id`	varchar(15) NULL,
+	`po_me_id`	varchar(15)	NULL,
 	`po_bo_num`	int	NOT NULL,
-	`po_state`	char(1) default 'N' not	NULL
+	`po_del`	char(1) default 'N' not	NULL
 );
 
 DROP TABLE IF EXISTS `LIKE`;
@@ -48,9 +49,9 @@ CREATE TABLE `LIKE` (
 DROP TABLE IF EXISTS `FILE`;
 
 CREATE TABLE `FILE` (
-	`fi_num`	int primary key auto_increment	NOT NULL,
-	`fi_ori_name`	varchar(255)	NULL,
-	`fi_name`	varchar(255)	NULL,
+	`fi_num`	int  primary key auto_increment	NOT NULL,
+	`fi_ori_name`	varchar(255) not	NULL,
+	`fi_name`	varchar(255) not	NULL,
 	`fi_po_num`	int	NOT NULL
 );
 
@@ -65,8 +66,6 @@ CREATE TABLE `COMMENT` (
 	`co_me_id`	varchar(15)	NOT NULL,
 	`co_po_num`	int	NOT NULL
 );
-
-
 
 ALTER TABLE `POST` ADD CONSTRAINT `FK_MEMBER_TO_POST_1` FOREIGN KEY (
 	`po_me_id`
@@ -116,4 +115,3 @@ ALTER TABLE `COMMENT` ADD CONSTRAINT `FK_POST_TO_COMMENT_1` FOREIGN KEY (
 REFERENCES `POST` (
 	`po_num`
 );
-
