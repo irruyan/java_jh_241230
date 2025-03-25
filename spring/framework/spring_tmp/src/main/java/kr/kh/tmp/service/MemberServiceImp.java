@@ -46,7 +46,7 @@ public class MemberServiceImp implements MemberService {
 			return null;
 		}
 		//비밀번호가 다른 경우
-		if(passwordEncoder.matches(member.getMe_pw(), user.getMe_pw())) {
+		if(!passwordEncoder.matches(member.getMe_pw(), user.getMe_pw())) {
 			return null;
 		}
 		
