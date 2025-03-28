@@ -41,10 +41,20 @@
 				<label for="content" class="form-lable">내용</label>
 				<div class="form-control" id="content" style="min-height: 400px">${post.po_content}</div>
 			</div>
+			<div>
+				<c:if test="${list.size() ne 0 }">
+					<div class="form-group">
+						<label>첨부파일</label>
+						<c:forEach items="${list }" var="file">
+							<a class="form-control" href="<c:url value="/download${file.fi_name }"/>" download="${file.fi_ori_name }">${file.fi_ori_name }</a>
+						</c:forEach>
+					</div>
+				</c:if>
+			</div>
 	</div>
 		</c:when>
 		<c:otherwise>
-			등록되지 않거나 삭제된 게시글입니다
+			<h3>등록되지 않거나 삭제된 게시글입니다</h3> 
 		</c:otherwise>
 	</c:choose>
 	 
@@ -57,7 +67,36 @@
 		</div>
 		</c:if>
 	</div>
+	<h3>댓글</h3>
+	<div class="comment-container">
+		
+	</div>
 	
+	<!-- 댓글 목록 조회 -->
+	<script type="text/javascript">
+		var cri = {
+			page : 1,
+			search : ${post.po_num}
+		}
+		function getCommentList(cri){
+			//ajax로 댓글 리스트를 가져와서 화면에 출력
+			$.ajax({
+				async : true, //비동기 : true(비동기), false(동기)
+				url : '<c:url value="/comment/list"/>', 
+				type : 'post', 
+				data : JSON.stringify(cri), 
+				contentType : "application/json; charset=utf-8",
+				success : function (data){
+					$(".comment-container").html(data);
+				}, 
+				error : function(jqXHR, textStatus, errorThrown){
+
+				}
+			});
+		}
+		
+		getCommentList(cri);
+	</script>
 	
 </body>
 </html>

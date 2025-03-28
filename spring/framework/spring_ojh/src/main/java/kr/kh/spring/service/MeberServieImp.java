@@ -59,4 +59,10 @@ public class MeberServieImp implements MemberService{
 		return user;
 	}
 
+	@Override
+	public boolean checkId(String id) {
+		MemberVO user = memberDao.selectMember(id);
+		return user == null;
+	}
+
 }
